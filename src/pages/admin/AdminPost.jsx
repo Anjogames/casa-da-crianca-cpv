@@ -1,11 +1,11 @@
 import AdminLayout from '../../services/AdminLayout'
 
-function Dashboard() {
+function AdminPost() {
   return (
     <AdminLayout>
-        <h1>Dashboard</h1>
+        <h1>Admin Post</h1>
     </AdminLayout>
   )
 }
 
-export default Dashboard
+export default AdminPost

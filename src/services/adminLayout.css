@@ -1,0 +1,161 @@
+/* BASE */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.layout {
+  background: #f4f7fb;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 30px;
+
+  background: linear-gradient(90deg, #2b7bb9, #4caf50); /* 🔥 azul + verde */
+  color: white;
+}
+
+/* LADO ESQUERDO */
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-left h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+/* OLÁ */
+.boas-vindas {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* BOTÃO SAIR */
+.header-right button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: white;
+  color: #2b7bb9;
+
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.header-right button:hover {
+  background: #f28c8c;
+  color: white;
+}
+
+/* LOGO */
+.logo h2 {
+  margin: 0;
+  color: #2b7bb9;
+}
+
+/* USER AREA */
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* 🔥 MAIS ESPAÇO */
+}
+
+/* NOME */
+.user-area span {
+  font-weight: 500;
+  color: #555;
+}
+
+/* BOTÃO SAIR */
+.user-area button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: transparent;
+  border: 1px solid #f28c8c;
+  color: #f28c8c;
+
+  padding: 6px 12px;
+  border-radius: 20px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* HOVER BONITO */
+.user-area button:hover {
+  background: #f28c8c;
+  color: white;
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+
+  background: #f28c8c;
+  padding: 12px;
+}
+
+/* LINKS */
+.link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  position: relative;
+  padding-bottom: 5px;
+}
+
+/* LINHA ANIMADA */
+.link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 0%;
+  height: 2px;
+  background: white;
+
+  transition: 0.3s;
+}
+
+/* HOVER */
+.link:hover::after {
+  width: 100%;
+}
+
+/* ATIVO */
+.link.active {
+  font-weight: bold;
+}
+
+.link.active::after {
+  width: 100%;
+}
+
+/* CONTEÚDO */
+.conteudo {
+  padding: 30px;
+}

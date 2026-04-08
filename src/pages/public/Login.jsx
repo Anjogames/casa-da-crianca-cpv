@@ -26,17 +26,8 @@ function Login() {
      <form onSubmit={entrar}>
       <h2>Login</h2>
 
-      <input
-        type="email"
-        placeholder="Email"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      <input
-        type="password"
-        placeholder="Senha"
-        onChange={(e) => setSenha(e.target.value)}
-      />
+      <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+      <input type="password" placeholder="Senha" onChange={(e) => setSenha(e.target.value)}/>
 
       <button>Entrar</button>
     </form>

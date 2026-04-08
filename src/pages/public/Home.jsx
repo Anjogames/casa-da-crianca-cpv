@@ -1,29 +1,43 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../../lib/supabaseClient'
+import Loading from '../../services/Loading'
 
 function Home() {
   const [posts, setPosts] = useState([])
   const [imagens, setImagens] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     buscarDados()
   }, [])
 
   async function buscarDados() {
-    const { data: postsData, error: errorPosts } = await supabase
-      .from('posts')
-      .select('*')
+    try {
+      const { data: postsData, error: errorPosts } = await supabase
+        .from('posts')
+        .select('*')
 
-    const { data: imagensData, error: errorImagens } = await supabase
-      .from('post_imagens')
-      .select('*')
+      const { data: imagensData, error: errorImagens } = await supabase
+        .from('post_imagens')
+        .select('*')
 
-    if (errorPosts) console.log(errorPosts)
-    if (errorImagens) console.log(errorImagens)
+        if (errorPosts) alert(errorPosts)
+        if (errorImagens) alert(errorImagens)
 
-    setPosts(postsData || [])
-    setImagens(imagensData || [])
-  }
+        setPosts(postsData || [])
+        setImagens(imagensData || [])
+
+    } catch (error) {
+      if(loading) return <Loading />
+      if (error) return <h1>{error}</h1>
+    } finally {
+      setLoading(false)
+    }
+}
+
+    if(loading) return <Loading />
+    if (error) return <h1>{error}</h1>
 
   return (
     <div>

@@ -12,7 +12,7 @@ function App() {
       <Routes>
         {/* Publico */}
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/logar" element={<Login />} />
 
         {/* Administrador */}
         <Route path="/admin" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />

@@ -1,26 +1,45 @@
 import { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { supabase } from '../lib/supabaseClient'
+import Loading from './Loading'
 
 export default function PrivateRoute({ children }) {
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    async function checkUser() {
-      const { data } = await supabase.auth.getUser()
-      if (data.user) {
-        setUser(data.user)
+    // função para pegar usuário atual
+    async function getUser() {
+      const { data, error } = await supabase.auth.getUser()
+
+      if (error) {
+        console.error('Erro ao buscar usuário:', error)
       }
+
+      setUser(data?.user ?? null)
       setLoading(false)
     }
-    checkUser()
+
+    getUser()
+
+    // listener para mudanças de login/logout
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        setUser(session?.user ?? null)
+      }
+    )
+
+    // cleanup (boa prática)
+    return () => {
+      listener.subscription.unsubscribe()
+    }
   }, [])
 
-  if (loading) return <div>Carregando...</div>
+  if (loading) return <Loading />
 
-  // se não estiver logado, redireciona para login
-  if (!user) return <Navigate to="/login" replace />
+  if (!user) {
+    return <Navigate to="/logar" replace />
+  }
 
   return children
 }

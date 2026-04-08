@@ -24,7 +24,7 @@ function AdminLayout({ children }) {
 
   async function sair() {
     await supabase.auth.signOut()
-    navigate('/')
+    window.location.href = '/'
   }
 
   return (
@@ -34,7 +34,8 @@ function AdminLayout({ children }) {
       <header className="header">
 
         <div className="header-left">
-          <h2>Casa da Criança</h2>
+          <h2
+          >Casa da Criança</h2>
           <span className="boas-vindas">Olá, {nome}</span>
         </div>
 

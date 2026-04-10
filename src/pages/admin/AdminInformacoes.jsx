@@ -89,10 +89,10 @@ function AdminInformacoes() {
 
   return (
     <AdminLayout>
-      <div className="contato-container">
+      <div className="container">
       <h2>Dados em Gerais</h2>
 
-      <form className="contato-form" onSubmit={salvarDados}>
+      <form className="container-form" onSubmit={salvarDados}>
 
         <div className="form-group">
         <label>Telefone</label>

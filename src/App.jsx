@@ -7,14 +7,10 @@ import AdminInformacoes from './pages/admin/AdminInformacoes'
 import AdminPost from './pages/admin/AdminPost'
 import AdminUsuarios from './pages/admin/AdminUsuarios'
 import Doacoes from './pages/admin/AdminDoacoes'
-import Header from "./pages/public/Header";
-import Footer from "./pages/public/Footer";
 
 function App() {
   return (
     <BrowserRouter>
-      
-      <Header />
 
       <Routes>
         {/* Publico */}
@@ -30,10 +26,8 @@ function App() {
 
       </Routes>
 
-      <Footer />
-
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
